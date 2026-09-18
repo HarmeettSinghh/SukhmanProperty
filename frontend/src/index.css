@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #141210;
+  --color-charcoal: #242424;
+  --color-ivory: #F5F3EE;
+  --color-stone: #E9E5DC;
+  --color-line: #D8D2C4;
+  --color-muted: #6B665C;
+  --color-white: #FFFFFF;
+  --color-gold: #B8924A;
+  --color-gold-light: #D4B26A;
+  --color-gold-dark: #8F6F32;
+
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Global resets & base styles ───────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    overflow-x: hidden;
+    line-height: 1.65;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--color-ink);
+  }
+  
+  h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.section-padding {
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+/* ── Interactive Elements ────────────────────────────────────────────── */
+a, button, input, textarea, .card {
+  transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── UI Components ──────────────────────────────────────────────────── */
+
+/* Typographic Nav Links */
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  text-decoration: none;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-gold);
+  transition: width 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--color-gold);
+}
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Eyebrow Label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Inputs */
+.input-field {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid var(--color-line);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-ink);
+  outline: none;
+}
+.input-field:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(184, 146, 74, 0.15);
+}
+textarea.input-field {
+  min-height: 140px;
+  padding: 16px;
+  resize: vertical;
+}
+
+/* Solid Button */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.btn-solid:hover { background: var(--color-gold); color: var(--color-white); }
+
+/* Outline Button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid var(--color-line);
+  cursor: pointer;
+}
+.btn-outline:hover { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-white); }
+
+/* Gold Accent Button */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--color-gold);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.btn-accent:hover { background: var(--color-gold-dark); }
+
+/* Scroll Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* ── WhatsApp float ─────────────────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+}
+.wa-float:hover { transform: scale(1.08); }
