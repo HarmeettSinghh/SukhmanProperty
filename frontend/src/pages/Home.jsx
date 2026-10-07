@@ -58,7 +58,7 @@ export default function Home() {
 
             {/* Paragraph */}
             <p className="text-white/80 text-lg mb-10 max-w-[520px] fade-up delay-200">
-              Residential homes, commercial spaces, plots and rentals across Faridabad, Delhi NCR, Gurugram and Noida. Trusted by over five hundred families.
+              Residential homes, commercial spaces, plots and rentals across Faridabad, Delhi NCR, Gurugram, Palwal, Noida and Varanasi too. Trusted by over five hundred families.
             </p>
 
             {/* Search block */}
@@ -101,8 +101,8 @@ export default function Home() {
             <div className="flex flex-wrap gap-8 sm:gap-16 fade-up delay-300">
               {[
                 { n: '500+', l: 'Properties sold' },
-                { n: '12+',  l: 'Years active' },
-                { n: '4',    l: 'Cities covered' },
+                { n: '4+',  l: 'Years active' },
+                { n: '6',    l: 'Cities covered' },
               ].map(s => (
                 <div key={s.l}>
                   <p className="font-display text-4xl sm:text-5xl text-white mb-1 leading-none">{s.n}</p>
@@ -130,10 +130,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up delay-100">
             {[
-              { cat: 'residential', label: 'Residential', sub: 'Homes & apartments', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80', h: 'h-56 md:h-80' },
-              { cat: 'commercial',  label: 'Commercial',  sub: 'Offices & retail',   img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80', h: 'h-56 md:h-64' },
-              { cat: 'plots',       label: 'Plots & Land', sub: 'Build your vision', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=80', h: 'h-56 md:h-64' },
-              { cat: 'rental',      label: 'Rental',       sub: 'Tenant & landlord', img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80', h: 'h-56 md:h-80' },
+              { cat: 'plots',       label: 'Plots & Land',      sub: 'Build your vision',   img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=80', h: 'h-56 md:h-80' },
+              { cat: 'residential', label: 'Flats & Residential', sub: 'Homes & apartments', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80', h: 'h-56 md:h-64' },
+              { cat: 'commercial',  label: 'Commercial',          sub: 'Offices & retail',   img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80', h: 'h-56 md:h-64' },
+              { cat: 'rental',      label: 'Rental',              sub: 'Tenant & landlord',  img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80', h: 'h-56 md:h-80' },
             ].map((c) => (
               <Link
                 key={c.cat}
@@ -193,7 +193,7 @@ export default function Home() {
               </span>
               <h2 className="text-white mb-6">
                 Trust earned over<br/>
-                <span className="italic text-gold-light">twelve years of work.</span>
+                <span className="italic text-gold-light">four years of work.</span>
               </h2>
               <p className="text-white/70 mb-10 max-w-[48ch] text-lg">
                 We have guided hundreds of families through one of the most important decisions of their lives. No pressure, no hidden charges — only transparent, expert property advice tailored to your situation.
@@ -339,8 +339,9 @@ export default function Home() {
                     <Phone size={16} className="text-gold group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.14em] font-medium text-muted mb-1">Call us</p>
+                    <p className="text-[11px] uppercase tracking-[0.14em] font-medium text-muted mb-1">Call us — {CONTACT.proprietor}</p>
                     <p className="font-display text-xl">{CONTACT.phoneDisplay}</p>
+                    <p className="text-sm text-muted">{CONTACT.phone2Display}</p>
                   </div>
                 </a>
 

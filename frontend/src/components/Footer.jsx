@@ -76,9 +76,9 @@ export default function Footer() {
           <p className="eyebrow !mb-4 text-gold">We Deal In</p>
           <ul className="space-y-3">
             {[
-              { to: '/properties?category=residential', label: 'Residential' },
-              { to: '/properties?category=commercial',  label: 'Commercial' },
               { to: '/properties?category=plots',       label: 'Plots & Land' },
+              { to: '/properties?category=residential', label: 'Flats & Residential' },
+              { to: '/properties?category=commercial',  label: 'Commercial' },
               { to: '/properties?category=rental',      label: 'Rental' },
             ].map(l => (
               <li key={l.to}>
@@ -104,6 +104,15 @@ export default function Footer() {
               >
                 <Phone size={14} className="flex-shrink-0 text-gold" />
                 {CONTACT.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${CONTACT.phone2Raw}`}
+                className="flex items-center gap-2.5 text-sm text-white/70 hover:text-gold transition-colors"
+              >
+                <Phone size={14} className="flex-shrink-0 text-gold" />
+                {CONTACT.phone2Display}
               </a>
             </li>
             <li>

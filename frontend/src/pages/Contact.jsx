@@ -35,11 +35,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.14em] font-medium text-muted mb-1">
-                      Call us
+                      Call us — {CONTACT.proprietor}
                     </p>
                     <p className="font-display text-2xl text-ink group-hover:text-gold transition-colors">
                       {CONTACT.phoneDisplay}
                     </p>
+                    <p className="text-sm text-muted mt-1">{CONTACT.phone2Display}</p>
                   </div>
                 </a>
 

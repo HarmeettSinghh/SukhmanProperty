@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MapPin, Bed, Bath, Car, Phone, MessageCircle, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Bed, Bath, Car, Phone, Mail, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROPERTIES } from '../data/properties';
 import ContactForm from '../components/ContactForm';
 import PropertyCard from '../components/PropertyCard';
@@ -20,7 +20,7 @@ export default function PropertyDetails() {
     </div>
   );
 
-  const { title, location, price, area, beds, baths, parking, category, type, description, amenities, images, rera } = p;
+  const { title, location, price, area, beds, baths, parking, category, type, description, amenities, images } = p;
   const related = PROPERTIES.filter(x => x.id !== p.id && x.category === category).slice(0, 3);
 
   return (
@@ -171,13 +171,6 @@ export default function PropertyDetails() {
               </div>
             )}
 
-            {/* RERA */}
-            {rera && (
-              <div className="flex items-center gap-3 border border-line p-5 text-sm bg-white">
-                <CheckCircle size={16} className="text-gold flex-shrink-0" />
-                <span className="text-muted font-medium">RERA Registered:</span> <span className="text-ink">{rera}</span>
-              </div>
-            )}
           </div>
 
           {/* ── Right sidebar ── */}

@@ -103,9 +103,9 @@ export default function ContactForm({ propertyName = '', compact = false, classN
           </label>
           <select name="type" value={form.type} onChange={set} className="input-field bg-white">
             <option value="">Select property type</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
             <option value="plot">Plot or Land</option>
+            <option value="residential">Flats & Residential</option>
+            <option value="commercial">Commercial</option>
             <option value="rental">Rental</option>
             <option value="sell">Sell my property</option>
           </select>
@@ -143,6 +143,10 @@ export default function ContactForm({ propertyName = '', compact = false, classN
         Or call directly &mdash;{' '}
         <a href={`tel:${CONTACT.phoneRaw}`} className="text-gold hover:underline">
           {CONTACT.phoneDisplay}
+        </a>
+        {' '}&middot;{' '}
+        <a href={`tel:${CONTACT.phone2Raw}`} className="text-gold hover:underline">
+          {CONTACT.phone2Display}
         </a>
       </p>
     </form>

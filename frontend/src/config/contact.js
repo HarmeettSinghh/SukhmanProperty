@@ -1,29 +1,37 @@
 // ─── SUKHMAN PROPERTY — CENTRALIZED CONTACT CONFIGURATION ───────────────────
-// Update these values with actual contact details before going live
 
 export const CONTACT = {
-  // Primary phone (also WhatsApp)
-  phone: '+91-XXXXXXXXXX',
-  phoneDisplay: '+91 XXXXX XXXXX',
-  phoneRaw: '+91XXXXXXXXXX', // no spaces/dashes — used for tel: links
+  // Primary phone (also WhatsApp) — Maninder Singh Saluja
+  phone: '+91-9990002278',
+  phoneDisplay: '+91 99900 02278',
+  phoneRaw: '+919990002278', // no spaces/dashes — used for tel: links
+
+  // Secondary phone
+  phone2: '+91-9891515113',
+  phone2Display: '+91 98915 15113',
+  phone2Raw: '+919891515113',
 
   // WhatsApp number (include country code, no + or spaces)
-  whatsappNumber: '91XXXXXXXXXX',
+  whatsappNumber: '919990002278',
+
+  // Proprietor
+  proprietor: 'Maninder Singh Saluja',
 
   // Email
-  email: 'info@sukhmanproperty.com',
+  email: 'sukhman.properties31@gmail.com',
 
   // Office address
-  address: 'SCO XX, Sector XX, Faridabad — 12100X, India',
-  addressShort: 'Sector XX, Faridabad',
+  address: 'Shop No. 244, 1st Floor, Sec. 79, OMAX World Street, Faridabad',
+  addressShort: 'Sec. 79, Faridabad',
 
   // Working hours
-  hours: 'Mon – Sat: 9:00 AM – 7:00 PM',
+  hours: 'Mon – Sun: 11:00 AM – 7:00 PM',
 
   // Social
-  facebook: 'https://facebook.com/sukhmanproperty',
-  instagram: 'https://instagram.com/sukhmanproperty',
+  facebook: 'https://facebook.com/sukhman.properties',
+  instagram: 'https://instagram.com/sukhman.properties',
   youtube: '',
+  website: 'https://www.sukhmanproperty.com',
 };
 
 // ─── Helper: generate WhatsApp deep-link ────────────────────────────────────
