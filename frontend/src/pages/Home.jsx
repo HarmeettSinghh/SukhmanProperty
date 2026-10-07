@@ -203,7 +203,7 @@ export default function Home() {
                 {[
                   { n: '01', t: 'Market expertise',      d: 'Twelve years of deep local knowledge across the Delhi NCR real estate market.' },
                   { n: '02', t: 'Transparent dealings',  d: 'No hidden charges. Every transaction is clear, documented, and straightforward.' },
-                  { n: '03', t: 'End-to-end support',    d: 'Legal guidance, RERA verification, documentation and registration — handled.' },
+                  { n: '03', t: 'End-to-end support',    d: 'Legal guidance, documentation and registration — handled.' },
                   { n: '04', t: 'Verified buyer network', d: 'Sellers reach a qualified network of serious buyers and investors.' },
                 ].map(p => (
                   <div key={p.n} className="grid grid-cols-[40px_1fr] gap-4 border-t border-white/20 pt-6">

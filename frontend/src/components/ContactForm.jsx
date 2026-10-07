@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CONTACT, { whatsappLink } from '../config/contact';
+import { sendEnquiry } from '../config/mailer';
 
 export default function ContactForm({ propertyName = '', compact = false, className = '' }) {
   const [form, setForm] = useState({
@@ -12,15 +13,30 @@ export default function ContactForm({ propertyName = '', compact = false, classN
       : '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading,   setLoading]   = useState(false);
+  const [error,     setError]     = useState('');
 
   const set = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    // TODO: wire to backend / EmailJS / Formspree
-    console.log('Enquiry:', form);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 6000);
+    setLoading(true);
+    setError('');
+    try {
+      await sendEnquiry({ ...form, propertyName });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 6000);
+    } catch (err) {
+      const msg = err?.message || '';
+      if (msg.includes('unrecognised IP') || msg.includes('authorised_ips')) {
+        setError('Brevo security requires IP authorization. Please visit https://app.brevo.com/security/authorised_ips to disable IP blocking, or use WhatsApp below.');
+      } else {
+        setError(msg || 'Something went wrong. Please try calling or WhatsApp instead.');
+      }
+      console.error('Brevo error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -125,9 +141,24 @@ export default function ContactForm({ propertyName = '', compact = false, classN
         />
       </div>
 
+      {error && (
+        <div className="p-4 bg-amber-50 border border-amber-200 text-amber-950 text-xs leading-relaxed space-y-2">
+          <p className="font-semibold text-amber-900">⚠️ Form delivery issue:</p>
+          <p>{error}</p>
+          <a
+            href={whatsappLink(`Hi Sukhman Property,\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email || 'N/A'}\nLooking for: ${form.type || 'N/A'}${propertyName ? `\nProperty: ${propertyName}` : ''}\nMessage: ${form.message || 'I would like to enquire.'}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#25D366] text-white font-medium hover:bg-[#20ba59] transition-colors rounded text-[11px] uppercase tracking-wider"
+          >
+            Send directly via WhatsApp &rarr;
+          </a>
+        </div>
+      )}
+
       <div className={`flex ${compact ? 'flex-col gap-4' : 'flex-col sm:flex-row gap-4'}`}>
-        <button type="submit" className="btn-solid flex-1">
-          Send enquiry
+        <button type="submit" disabled={loading} className="btn-solid flex-1 disabled:opacity-60 disabled:cursor-not-allowed">
+          {loading ? 'Sending enquiry...' : 'Send enquiry'}
         </button>
         <a
           href={form.name ? whatsappLink(`I am ${form.name}. ${form.message || 'I would like to enquire.'}`) : whatsappLink()}

@@ -11,6 +11,38 @@ export const PROPERTY_CATEGORIES = [
 
 export const PROPERTIES = [
   {
+    id: 5,
+    slug: 'amolik-residency-plot-30-sector-86-greater-faridabad',
+    title: 'Amolik Residency — Plot No. 30',
+    location: 'Plot No. 30, Sector 86, Greater Faridabad',
+    city: 'Faridabad',
+    category: 'plots',
+    type: 'buy',
+    price: 'Price on Request',
+    priceValue: 8500000,
+    area: 'Plot No. 30',
+    beds: null,
+    baths: null,
+    parking: null,
+    featured: true,
+    new: true,
+    image: '/images/amolik-residency.jpg',
+    images: [
+      '/images/amolik-residency.jpg',
+    ],
+    description: 'Prime residential plot No. 30 in Amolik Residency, Sector 86, Greater Faridabad. Situated inside a fully developed, secure gated community with landscaped surroundings and modern civic amenities. Excellently connected — situated close to Accord Super Speciality Hospital, Delhi-Mumbai Expressway, renowned schools, and bustling retail markets. Perfect for constructing your bespoke luxury family home or securing a prime land asset in Greater Faridabad.',
+    amenities: [
+      'Plot No. 30',
+      'Near Accord Hospital',
+      'Near Delhi-Mumbai Expressway',
+      'Near Famous Schools',
+      'Near Market & Shopping',
+      'Fully Developed Society',
+      'Gated Community & 24/7 Security',
+      'Wide Roads & Green Belts',
+    ],
+  },
+  {
     id: 4,
     slug: 'rasa-phase-2-palwal',
     title: 'RASA Phase 2 — Plots',
@@ -91,7 +123,7 @@ export const SERVICES = [
   {
     id: 6,
     title: 'Documentation Help',
-    description: 'End-to-end legal paperwork assistance including sale deeds, registry, mutation, RERA verification, and NOC processing.',
+    description: 'End-to-end legal paperwork assistance including sale deeds, registry, mutation, and NOC processing.',
   },
 ];
 
