@@ -4,7 +4,7 @@ import { Search, SlidersHorizontal, X } from 'lucide-react';
 import PropertyCard from '../components/PropertyCard';
 import { PROPERTIES, PROPERTY_CATEGORIES } from '../data/properties';
 
-const CITIES = ['All', 'Faridabad', 'Delhi NCR', 'Gurugram', 'Noida'];
+const CITIES = ['All', 'Faridabad', 'Palwal', 'Delhi NCR', 'Gurugram', 'Noida'];
 const PRICE_RANGES = [
   { label: 'Any price',       min: 0,        max: Infinity },
   { label: 'Up to 50 Lakh',  min: 0,        max: 5000000 },
